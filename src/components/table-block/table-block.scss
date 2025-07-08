@@ -1,0 +1,159 @@
+
+
+.table-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+    margin-top: 96px;
+
+    &__title {
+        font-size: 72px;
+        color: #FD532F;
+        margin-bottom: 75px;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 16px;
+    
+    &__top, &__row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        font-weight: 400;
+    }
+
+    &__top {
+        align-items: center;
+        background: #353535;
+        height: 62px;
+    }
+
+    &__top &__item:first-child {
+        padding-left: 16px;
+    }
+
+    &__row {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    //&__top &__item:nth-child(2) {
+    //    text-align: center;
+    //}
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    &__item {
+        width: 20%;
+        min-width: 150px;
+        font-size: 20px;
+
+        &:first-child {
+            display: flex;
+            align-items: center;
+            width: 30%;
+            min-width: 200px;
+
+            img {
+                margin-right: 8px;
+            }
+        }
+    }
+
+    &__body &__row {
+        background: #212121;
+
+        &:nth-child(2n) {
+            background: #1B1B1B;
+
+        }
+    }
+
+    &__body &__item {
+        display: flex;
+        align-items: center;
+        height: 80px;
+    }
+
+    &__change {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        height: 43px;
+        padding-left: 8px;
+        padding-right: 8px;
+        background: transparent;
+        color: #2DBD85;
+        border-radius: 8px;
+        border: 1px solid #2DBD85;
+        position: relative;
+    }
+
+    &__change.negative {
+        color: #D33536;
+        border-color: #D33536;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .table-block__title {
+        font-size: 36px;
+    }
+
+    .table {
+
+        &__top {
+            display: none; // Скрываем заголовки таблицы
+        }
+
+        &__row {
+            display: grid;
+            grid-template-columns: 1fr; // Делаем каждый ряд вертикальным
+            gap: 8px;
+            padding: 16px;
+            background: linear-gradient(90deg, rgba(9, 2, 29, 0) 0%, rgba(255, 255, 255, 0.15) 100%);
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        &__item {
+            display: flex;
+            width: 100%;
+            height: auto !important;
+            padding: 8px 0;
+            font-size: 18px;
+            position: relative;
+
+            &::before {
+                content: attr(data-label); // Используем атрибут data-label для отображения подсказки
+                font-weight: 600;
+                margin-right: 8px;
+                color: #888;
+            }
+
+            &:first-child::before {
+                content: "Markets"; // Подпись для первого элемента
+            }
+        }
+
+    }
+
+}
