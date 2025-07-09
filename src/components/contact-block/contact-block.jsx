@@ -38,10 +38,33 @@ export default function ContactBlock() {
             });
     }, []);
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
+        try {
+            const formatedData = {
+                name: data.name + ' ' + data.surname,
+                phone: data.phone,
+                email: data.email,
+                amount: 'more 5000',
+                issue_category: 'socarinvest',
+                message: '0.0.0.0scscscs',
+                country: data.country
+            }
+
+            await fetch(`${process.env.REACT_APP_PROXY_URL}/lead/register-lead-from-brand`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formatedData)
+            })
+
+
+            reset();
+        } catch (e) {
+            alert(e);
+        }
         // Здесь твой submit (API или почта)
-        alert(JSON.stringify(data, null, 2));
-        reset();
+
     };
 
     return (
