@@ -77,19 +77,15 @@ const TableComponent = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
         >
-            <motion.div
+            <div
                 className='table__top'
-                initial={{ opacity: 0, y: -30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.7 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
             >
                 <div className='table__item'>Markets</div>
                 <div className='table__item'>Price</div>
                 <div className='table__item'>Change%</div>
                 <div className='table__item'>Market cap</div>
                 <div className='table__item'>Volume 24h</div>
-            </motion.div>
+            </div>
 
             <div className='table__body'>
                 {COINS.map((coin, idx) => (
