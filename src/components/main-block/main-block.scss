@@ -88,10 +88,18 @@
 
 @media (max-width: 575px) {
   .main-block {
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 40px;
+    padding-bottom: 80px;
+    background: rgba(0, 0, 0, 0.4);
+
+    &__column:first-child {
+      z-index: 3;
+    }
     &__column:last-child {
-      display: none;
+    //  display: none;
+      top: 60px;
     }
 
     &__title {
