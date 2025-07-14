@@ -37,14 +37,14 @@ export default function Header() {
             transition={{duration: 0.7, ease: "easeOut"}}
             viewport={{once: true, amount: 0}}
         >
-            <motion.div
+            <motion.img
+                src={process.env.REACT_APP_LOGO}
                 className="header__logo"
                 initial={{opacity: 0, x: -40}}
                 animate={{opacity: 1, x: 0}}
                 transition={{duration: 0.85, ease: "easeOut"}}
-            >
-                LOGO
-            </motion.div>
+             />
+
             <motion.div
                 className="header__menu"
                 variants={menuVariants}
