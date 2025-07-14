@@ -5,6 +5,10 @@
   margin-top: 32px;
   z-index: 5;
 
+  &__logo {
+    max-width: 175px;
+  }
+
   &__menu {
     display: flex;
     align-items: center;
